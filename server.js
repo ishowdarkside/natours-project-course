@@ -9,7 +9,7 @@ process.on('uncaughtException', (err) => {
 });
 
 const app = require('./app');
-const port = +process.env.port || 3000;
+const port = +process.env.PORT || 3000;
 dotenv.config({ path: './config.env' });
 
 const DB = process.env.DATABASE.replace(
