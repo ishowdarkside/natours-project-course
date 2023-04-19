@@ -15,12 +15,17 @@ const httpParameterPolution = require('hpp');
 const viewRouter = require('./routes/viewRoutes');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 // 1) GLOBAL MIDDLEWARES
 app.enable('trust proxy');
+//implement CORS
+app.use(cors());
+
+app.options('*', cors());
 //Development logging
 
 //Set Security HTTP Headers
